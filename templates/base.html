@@ -1,0 +1,154 @@
+<!--
+Credit to simonw for creating the sfms-history website, which this was adapted from
+Repo: https://github.com/simonw/sfms-history/tree/main
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Cobb County/City Meeting Minutes{% endblock %}</title>
+<style>
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+section {
+  max-width: 800px;
+  overflow-wrap: break-word;
+  margin-left: 70px;
+}
+.abc-logo {
+  width: 140px;
+  float: left;
+  margin-right: 25px;
+}
+.result-thumb {
+  float: right;
+  margin: 0.5em;
+}
+header {
+  height: 150px;
+  display: flex;
+  align-items: center;
+}
+footer {
+  margin-left: 70px;
+  border-top: 2px solid #ccc;
+  max-width: 800px;
+  clear: both;
+}
+footer p {
+  margin-top: 0.5em;
+}
+footer a {
+  text-decoration: none;
+  font-size: 0.8em;
+}
+header h1 em {
+  font-weight: normal;
+}
+p.next-page {
+  clear: both;
+  padding-bottom: 2em;
+}
+p.next-page a:link,
+p.next-page a:visited,
+p.next-page a:hover,
+p.next-page a:focus,
+p.next-page a:active {
+  text-decoration: none;
+  color: navy;
+  font-weight: bold;
+}
+a:link,
+a:visited,
+a:hover,
+a:focus,
+a:active {
+  color: navy;
+}
+a:visited {
+  color: rgb(110, 18, 185);
+}
+.page img {
+  max-width: 100%;
+}
+.page pre {
+  overflow: auto;
+}
+div.result {
+  clear: both;
+}
+div.result h2 {
+  margin-bottom: 0.2em;
+}
+div.result h2 a {
+  text-decoration: none;
+}
+div.result h2 .page-number {
+  font-size: 0.75em;
+  padding-left: 1em;
+}
+.folder, .breadcrumbs {
+  font-family: courier;
+  margin-top: 0.2em;
+}
+.random-page {
+  object-fit: cover;
+  width: 200px;
+  height: 300px;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+}
+.page-and-ocr {
+  display: flex;
+}
+.page-and-ocr pre {
+  width: 60%;
+  white-space: pre-wrap;
+}
+.page-and-ocr .img {
+  width: 40%;
+}
+@media only screen and (max-width: 600px) {
+  header {
+    font-size: 0.75em;
+    line-height: 1.3;
+  }
+  section, footer {
+    margin-left: 10px;
+  }
+  .random-page {
+    width: 160px;
+    height: 240px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .page-and-ocr {
+    display: block;
+  }
+  .page-and-ocr pre, .page-and-ocr .img {
+    width: 95%;
+  }
+}
+</style>
+</head>
+<body>
+<header>
+  <a href="/"><img class="abc-logo" src="/static/abc.png" alt="A Better Cobb"></a>
+  <h1>A Better Cobb<br><em>Meeting Minutes Archive</em></h1>
+</header>
+
+<section class="{% block section_class %}{% endblock %}">
+{% block content %}{% endblock %}
+</section>
+
+<footer>{% block footer %}
+  <p>
+    <a href="/about">About this site</a>
+  </p>
+{% endblock %}</footer>
+
+</body>
+</html>
